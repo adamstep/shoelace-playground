@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/pure.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.12/dist/shoelace/shoelace.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.12/dist/shoelace/shoelace.esm.js"></script>
+
+</head>
+
+<style>
+body {
+  margin: 2rem;
+  max-width: 40rem;
+}
+
+</style>
+
+<body>
+
+<sl-dropdown>
+  <sl-button slot="trigger" caret>Dropdown</sl-button>
+  <sl-menu class="menu">
+    <sl-menu-item value="open1">Open 1</sl-menu-item>
+    <sl-menu-item value="open2">Open 2</sl-menu-item>
+  </sl-menu>
+</sl-dropdown>
+
+<sl-dialog label="Dialog" id="modal1">
+  This is modal 1
+  <sl-button slot="footer" type="primary">Close</sl-button>
+</sl-dialog>
+
+<sl-dialog label="Dialog" id="modal2">
+  This is modal 2
+  <sl-button slot="footer" type="primary">Close</sl-button>
+</sl-dialog>
+
+<script>
+
+const modal1 = document.querySelector('#modal1');
+const modal2 = document.querySelector('#modal2');
+const menu = document.querySelector('.menu');
+
+menu.addEventListener('slSelect', (e) => {
+  const action = e.detail.item.value;
+  if (action == 'open1') {
+    modal1.show();
+  } else if (action == 'open2') {
+    modal2.show();
+  }
+});
+
+modal1.addEventListener('slAfterHide', () => console.log('hide modal 1'));
+modal1.addEventListener('slAfterHide', () => console.log('hide modal 2'));
+
+</script>
+
+</body>
+</html>

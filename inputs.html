@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify/themes/pure.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.12/dist/shoelace/shoelace.css">
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0-beta.12/dist/shoelace/shoelace.esm.js"></script>
+
+</head>
+
+<style>
+body {
+  margin: 2rem;
+  max-width: 40rem;
+}
+
+sl-rating {
+  --symbol-size: 32px;
+}
+
+sl-input {
+  margin-bottom: 1rem;
+}
+sl-input::part(label) {
+  margin-bottom: .5rem;
+}
+sl-input::part(help-text) {
+  margin-top: .5rem;
+}
+
+</style>
+
+<body>
+
+<sl-input label="User name" placeholder="John" clearable>
+  <sl-icon name="person" slot="prefix"></sl-icon>
+</sl-input>
+
+<sl-input label="Password" type="password" toggle-password>
+  <div slot="help-text">Wrong password</div>
+</sl-input>
+
+<sl-rating></sl-rating>
+
+</body>
+</html>
